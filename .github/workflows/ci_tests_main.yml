@@ -17,5 +17,5 @@ jobs:
         with:
           java-version: '8'
           distribution: 'adopt'
-      - name: Build with Maven
+      - name: Tests with Maven
         run: mvn test
