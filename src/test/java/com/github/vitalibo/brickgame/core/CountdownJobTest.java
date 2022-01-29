@@ -25,7 +25,7 @@ public class CountdownJobTest {
         Assert.assertTrue(invocations < 10);
 
         sleep();
-        Assert.assertTrue(finished);
+        Assert.assertFalse(finished);
         Assert.assertTrue(job.isKilled());
         Assert.assertEquals(invocations, 10);
     }
