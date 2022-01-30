@@ -33,7 +33,6 @@ jobs:
         uses: sonatype-nexus-community/nexus-repo-github-action@master
         env:
           REF_TAG: ${{ github.ref_name }}
-          JAR_FILE: ./target/brick-game-${REF_TAG:1}.jar
         with:
           serverUrl: ${{ secrets.nexus_url }}
           username: ${{ secrets.nexus_username }}
@@ -42,5 +41,5 @@ jobs:
           repository: maven-releases
           coordinates: groupId=com.github.vitalibo artifactId=brick-game version=${REF_TAG:1}
           assets: extension=jar
-          filename: ./target/brick-game-0.5.3.jar
+          filename: ./target/brick-game.jar
         
