@@ -39,7 +39,7 @@ jobs:
           password: ${{ secrets.nexus_password }}
           format: maven2
           repository: maven-releases
-          coordinates: groupId=com.github.vitalibo artifactId=brick-game version=${REF_TAG:1}
+          coordinates: groupId=com.github.vitalibo artifactId=brick-game version=${{REF_TAG}}
           assets: extension=jar
-          filename: ./target/brick-game.jar
+          filename: ./target/brick-game-${{REF_TAG}}.jar
         
