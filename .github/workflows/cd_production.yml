@@ -42,5 +42,5 @@ jobs:
           repository: maven-releases
           coordinates: groupId=com.github.vitalibo artifactId=brick-game version=${REF_TAG:1}
           assets: extension=jar
-          filename: $JAR_FILE
+          filename: ./target/brick-game-0.5.3.jar
         
