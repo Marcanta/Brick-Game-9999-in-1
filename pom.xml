@@ -19,7 +19,6 @@
 
     <properties>
         <jdk.version>1.8</jdk.version>  
-        <jar.finalName>brick-game</jar.finalName>
     </properties>
 
     <dependencies>
