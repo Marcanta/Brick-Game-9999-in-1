@@ -1,4 +1,4 @@
-name: CD / Deploy / main
+name: CD / Deploy / release
 concurrency: cd-production
 
 on:
