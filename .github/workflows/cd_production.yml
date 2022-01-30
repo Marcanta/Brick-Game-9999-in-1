@@ -3,8 +3,8 @@ concurrency: cd-production
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - 'v*.*.*'
   workflow_dispatch:
 
 jobs:
@@ -18,6 +18,10 @@ jobs:
         with:
           java-version: '8'
           distribution: 'adopt'
+          
+      - name: Print tag name
+        run: echo ${{github.ref_name}}
+        
       - name: Build with Maven
         run: mvn compile
       - name: Package with Maven
