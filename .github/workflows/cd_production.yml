@@ -20,7 +20,9 @@ jobs:
           distribution: 'adopt'
           
       - name: Print tag name
-        run: echo ${{github.ref_name:1}}
+        run: echo ${REF_TAG:1}
+        env:
+          REF_TAG: ${{ github.ref_name }}
         
       - name: Build with Maven
         run: mvn compile
@@ -29,13 +31,15 @@ jobs:
         
       - name: Nexus Repo Publish
         uses: sonatype-nexus-community/nexus-repo-github-action@master
+        env:
+          REF_TAG: ${{ github.ref_name }}
         with:
           serverUrl: ${{ secrets.nexus_url }}
           username: ${{ secrets.nexus_username }}
           password: ${{ secrets.nexus_password }}
           format: maven2
           repository: maven-releases
-          coordinates: groupId=com.github.vitalibo artifactId=brick-game version=${{github.ref_name:1}}
+          coordinates: groupId=com.github.vitalibo artifactId=brick-game version=${REF_TAG:1}
           assets: extension=jar
-          filename: ./target/brick-game-${{github.ref_name:1}}.jar
+          filename: ./target/brick-game-${REF_TAG:1}.jar
         
