@@ -33,6 +33,7 @@ jobs:
         uses: sonatype-nexus-community/nexus-repo-github-action@master
         env:
           REF_TAG: ${{ github.ref_name }}
+          JAR_FILE: ./target/brick-game-${REF_TAG:1}.jar
         with:
           serverUrl: ${{ secrets.nexus_url }}
           username: ${{ secrets.nexus_username }}
