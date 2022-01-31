@@ -45,7 +45,9 @@ Ci dessus un workflow basique, qui va faire des actions assez sommaire, nous all
 **Instructions**: 
 
 `on` : ce qui suit ce selecteur indique sur quoi l'action va se déclancher, ici cela se fait sur un `push` sur les branches main et dev.  le `workflow_dispatch` permet de trigger l'action a la main.
+
 `jobs` : ici on retrouve les différents ensemble d'étapes/commandes (*jobs*).
+
 `steps` : dans un job, les *steps* sont des étapes ou des commandes, Elles peuvent etre des commandes shell (ex: `run: echo "hello world"`) ou des actions qui ont été créé par d'autres et qu'on utilise dans notre worflow.  L'action `uses: actions/checkout@v2` permet au runner de recuperer le code de notre repo. 
 
 Github nous mets aussi a disposition des variables d'environnement liée au repo ici `${{ github.workspace }}`  nous donne le chemin vers le repo dans le runner.
